@@ -1,0 +1,29 @@
+
+CREATE TABLE product (
+  sku VARCHAR(20) PRIMARY KEY,
+  price DECIMAL(10, 2) NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  type VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE book (
+  sku VARCHAR(20) PRIMARY KEY,
+  weigh INT NOT NULL,
+  FOREIGN KEY (sku) REFERENCES product(sku) ON DELETE CASCADE
+);
+
+
+CREATE TABLE dvd (
+  sku  VARCHAR(20) PRIMARY KEY,
+  size INT NOT NULL,
+  FOREIGN KEY (sku) REFERENCES product(sku) ON DELETE CASCADE
+);
+
+
+CREATE TABLE furniture (
+  sku  VARCHAR(20) PRIMARY KEY, 
+  width INT NOT NULL,
+  length INT NOT NULL,
+  FOREIGN KEY (sku) REFERENCES product(sku) ON DELETE CASCADE
+);
